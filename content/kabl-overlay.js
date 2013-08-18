@@ -53,10 +53,9 @@ var gKabl={
   setDisabled:function() {
     var tb=document.getElementById('tb-kabl');
     if (tb) {
-      // Standard is disabled=true -- but that disables the button, so
-      // clicking it fires no command and won't re-enable us.  Use our
-      // own yes/no styled to be similar.
-      tb.setAttribute('disabled', gKablPrefs.enabled ? 'no' : 'yes');
+      // use group to avoid malfunction when javascript.strict enabled.
+      // group has no meaning if button type is not 'radio'
+      tb.setAttribute('group', gKablPrefs.enabled ? 'no' : 'yes');
     }
   },
 
